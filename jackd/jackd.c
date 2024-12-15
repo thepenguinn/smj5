@@ -32,6 +32,15 @@ static struct mpd_connection * mpd_init_connection() {
     return conn;
 }
 
+/*
+ * Currently mpd_pause and mpd_play establish seperate connections as they
+ * been called each time, and closes the connection at the end. It is implemented
+ * this way because, libmpdclient or maybe mpd seem to drop the connection
+ * if there is a long pause between each request. Or it could be something wrong
+ * with this phone itself (Samsung J5 2015). Otherwise we could have
+ * just starta single connection, and simply send mpd_send_pause instead
+ * of creating seperate connections each time.
+ * */
 static bool mpd_pause() {
 
     struct mpd_connection * conn = mpd_init_connection();
