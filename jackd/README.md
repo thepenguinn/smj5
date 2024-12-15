@@ -1,7 +1,7 @@
 # Earphone Jack Daemon
 
-Listens for Earphone plugging in and plugging out event and plays or pauses MPD
-accordingly. Btw, only works on Samsung J5.
+Listens for Earphone events and plays or pauses MPD accordingly.
+Btw, only works on Samsung J5.
 
 # Building
 
